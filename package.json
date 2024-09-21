@@ -4,14 +4,29 @@
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios",
-    "lint": "eslint .",
     "start": "react-native start",
-    "test": "jest"
+    "start:cache": "react-native start -- --reset-cache",
+    "prettier:write": "npx prettier --write **/*.{js,jsx,ts,tsx,json} && npx prettier --write *.{js,jsx,ts,tsx,json}",
+    "ios": "react-native run-ios",
+    "validations": "npm-run-all lint test:coverage",
+    "link": "react-native link",
+    "test": "jest",
+    "test:coverage": "npm run test -- --coverage",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "npm run lint --fix",
+    "prepare": "husky install"
   },
   "dependencies": {
+    "@react-navigation/native": "^6.1.18",
+    "@react-navigation/native-stack": "^6.11.0",
+    "@reduxjs/toolkit": "^2.2.7",
     "react": "18.3.1",
-    "react-native": "0.75.3"
+    "react-native": "0.75.3",
+    "react-native-biometrics": "^3.0.1",
+    "react-native-safe-area-context": "^4.11.0",
+    "react-native-screens": "^3.34.0",
+    "react-native-snackbar": "^2.6.2",
+    "react-redux": "^9.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
